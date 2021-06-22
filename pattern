@@ -1,0 +1,48 @@
+/*1. Assume that the input will be a word with odd letter count. Print the output as given below.
+
+Input : W E L C O M E
+Explanation : start with middle letter from first line. Next line two letter from middle . Continue still you print all letters in last line. Then start with the first letter and continue for the remaining letters.
+
+output :
+
+
+                     C
+                 C O
+              C O M
+           C O M E
+       C O M E W
+   C O M E W E
+C O M E W E L
+
+Input : W A T E R
+Output :
+
+            T
+         T E
+      T E R
+   T E R W
+T E R W A */
+
+public class Pattern {
+    public static void main(String[] args) {
+        String str = "WELCOME";
+        printPattern(str);
+    }
+
+    private static void printPattern(String str) {
+        int n = str.length();
+
+        for(int i=0;i<n;i++){
+            int mid = str.length()/2;
+            for(int j=i;j<n-1;j++)
+                System.out.print(" ");
+            for (int j =0;j<=i;j++){
+                if(mid >= n)
+                    mid = 0;
+                System.out.print(str.charAt(mid));
+                mid++;
+            }
+            System.out.println();
+        }
+    }
+}
